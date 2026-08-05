@@ -3,7 +3,7 @@ label:
   en: Bar Chart (D3)
 description:
   en: A grouped bar chart rendered with raw D3 primitives.
-order: 4
+order: 5
 ---
 
 # {{label}}

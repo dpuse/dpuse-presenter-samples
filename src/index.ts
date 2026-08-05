@@ -12,7 +12,7 @@ import type { MicromarkTool } from '@dpuse/dpuse-tool-micromark-markdown-parser'
 // ── Data
 import config from '~/config.json';
 import configPresentations from '~/configPresentations.json';
-import { barChartSampleData, sankeyDiagramSampleData } from '@/sampleData/d3SampleData';
+import { barChartSampleData, chordDiagramSampleData, sankeyDiagramSampleData } from '@/sampleData/d3SampleData';
 
 // ── Presenters ───────────────────────────────────────────────────────────────────────────────────────────────────────
 
@@ -78,6 +78,9 @@ export default class SamplesPresenter implements PresenterInterface {
         if (!this.d3Tool) return;
 
         switch (presentationPath) {
+            case 'd3/chordDiagram':
+                await this.d3Tool.renderChordDiagram(chordDiagramSampleData, renderTo);
+                break;
             case 'd3/sankeyDiagram':
                 await this.d3Tool.renderSankeyDiagram(sankeyDiagramSampleData, renderTo);
                 break;

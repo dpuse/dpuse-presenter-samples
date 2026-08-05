@@ -1,7 +1,23 @@
 // ── DPUse Tools
-import type { BarChartData, SankeyDiagramData } from '@dpuse/dpuse-tool-d3-visualiser';
+import type { BarChartData, ChordDiagramData, SankeyDiagramData } from '@dpuse/dpuse-tool-d3-visualiser';
 
 // ── Sample Data ──────────────────────────────────────────────────────────────────────────────────────────────────────
+
+export const chordDiagramSampleData: ChordDiagramData = {
+    links: [
+        { source: 'design', target: 'engineering', value: 12 },
+        { source: 'engineering', target: 'product', value: 9 },
+        { source: 'product', target: 'support', value: 6 },
+        { source: 'support', target: 'design', value: 4 },
+        { source: 'engineering', target: 'support', value: 3 }
+    ],
+    nodes: [
+        { id: 'design', label: 'Design' },
+        { id: 'engineering', label: 'Engineering' },
+        { id: 'product', label: 'Product' },
+        { id: 'support', label: 'Support' }
+    ]
+};
 
 export const sankeyDiagramSampleData: SankeyDiagramData = {
     links: [

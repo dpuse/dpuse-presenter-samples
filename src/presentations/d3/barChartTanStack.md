@@ -3,7 +3,7 @@ label:
   en: Bar Chart (TanStack Charts)
 description:
   en: A grouped bar chart rendered with TanStack Charts.
-order: 5
+order: 6
 ---
 
 # {{label}}

@@ -3,7 +3,7 @@ label:
   en: Sankey Diagram
 description:
   en: A D3 Sankey diagram rendering source-to-target flow volumes.
-order: 1
+order: 2
 ---
 
 # {{label}}

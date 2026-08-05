@@ -3,7 +3,7 @@ label:
   en: Bar Chart (Observable Plot)
 description:
   en: A grouped bar chart rendered with Observable Plot.
-order: 3
+order: 4
 ---
 
 # {{label}}

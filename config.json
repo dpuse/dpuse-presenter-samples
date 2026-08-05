@@ -26,7 +26,7 @@
             },
             "icon": null,
             "iconDark": null,
-            "order": 2,
+            "order": 3,
             "path": "d3/barChartBillboard",
             "typeId": "presenterPresentation"
         },
@@ -40,7 +40,7 @@
             },
             "icon": null,
             "iconDark": null,
-            "order": 4,
+            "order": 5,
             "path": "d3/barChartD3Native",
             "typeId": "presenterPresentation"
         },
@@ -54,7 +54,7 @@
             },
             "icon": null,
             "iconDark": null,
-            "order": 3,
+            "order": 4,
             "path": "d3/barChartObservablePlot",
             "typeId": "presenterPresentation"
         },
@@ -68,8 +68,22 @@
             },
             "icon": null,
             "iconDark": null,
-            "order": 5,
+            "order": 6,
             "path": "d3/barChartTanStack",
+            "typeId": "presenterPresentation"
+        },
+        {
+            "id": "d3ChordDiagram",
+            "label": {
+                "en": "Chord Diagram"
+            },
+            "description": {
+                "en": "A Unovis chord diagram rendering directional relationships between teams."
+            },
+            "icon": null,
+            "iconDark": null,
+            "order": 1,
+            "path": "d3/chordDiagram",
             "typeId": "presenterPresentation"
         },
         {
@@ -82,7 +96,7 @@
             },
             "icon": null,
             "iconDark": null,
-            "order": 1,
+            "order": 2,
             "path": "d3/sankeyDiagram",
             "typeId": "presenterPresentation"
         }
@@ -90,6 +104,6 @@
     "status": null,
     "statusId": "alpha",
     "typeId": "presenter",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "usageId": "unknown"
 }

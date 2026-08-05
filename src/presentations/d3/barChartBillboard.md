@@ -3,7 +3,7 @@ label:
   en: Bar Chart (Billboard.js)
 description:
   en: A grouped bar chart rendered with Billboard.js.
-order: 2
+order: 3
 ---
 
 # {{label}}
