@@ -1,0 +1,91 @@
+// Dependencies - Vendor.
+import { promises as fs } from 'node:fs';
+import frontMatter from 'front-matter';
+import path from 'node:path';
+
+// Dependencies - Framework.
+import type { ComponentReference } from '@dpuse/dpuse-shared/component';
+import type { PresentationConfig } from '@dpuse/dpuse-shared/component/presentation';
+
+// Types
+type FrontMatter = { label: Record<string, string>; description: Record<string, string>; order: number };
+type PresentationItem = PresentationFolderItem | PresentationFileItem;
+type PresentationFolderItem = { id: string; typeId: 'folder'; children: PresentationItem[] };
+type PresentationFileItem = { id: string; typeId: 'file' };
+
+// Processing ──────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+await constructPresentationConfigs();
+
+// Helpers ─────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+async function constructPresentationConfigs() {
+    const topPath = 'src/presentations';
+    const presentationMap: Record<string, PresentationConfig> = {};
+    await constructPresentationConfigsForPath(topPath, presentationMap);
+
+    await fs.writeFile('./configPresentations.json', JSON.stringify(presentationMap));
+
+    const config = await JSON.parse(await fs.readFile('config.json', 'utf8'));
+    config.presentations = Object.entries(presentationMap).map((item): ComponentReference => ({
+        id: item[1].id,
+        label: item[1].label,
+        description: item[1].description,
+        icon: null,
+        iconDark: null,
+        order: item[1].order,
+        path: item[0],
+        typeId: 'presenterPresentation'
+    }));
+    await fs.writeFile('config.json', JSON.stringify(config, undefined, 4));
+
+    // Utilities - Construct presentation configurations for path and update presentation map.
+    async function constructPresentationConfigsForPath(currentPath: string, presentationMap: Record<string, PresentationConfig>) {
+        const dirItems = await fs.readdir(currentPath);
+        for (const itemName of dirItems) {
+            const itemPath = `${currentPath}/${itemName}`;
+            const stats = await fs.stat(itemPath);
+            if (stats.isDirectory()) {
+                await constructPresentationConfigsForPath(itemPath, presentationMap);
+            } else {
+                if (path.extname(itemPath) !== '.md') continue;
+                const itemContent = await fs.readFile(itemPath, 'utf8');
+                if (!itemContent) continue;
+                const content = frontMatter<FrontMatter>(itemContent);
+                const contentBody = compressJSONBlocks(content.body);
+                const id = `${currentPath.substring(topPath.length + 1)}/${path.basename(itemPath, '.md')}`;
+                presentationMap[id] = {
+                    id: id.replace(/\/(.)/g, (_, c) => c.toUpperCase()),
+                    label: content.attributes.label,
+                    description: content.attributes.description,
+                    firstCreatedAt: null,
+                    icon: null,
+                    iconDark: null,
+                    lastUpdatedAt: null,
+                    order: content.attributes.order,
+                    status: null,
+                    statusId: 'alpha',
+                    typeId: 'presenterPresentation',
+                    content: contentBody
+                };
+            }
+        }
+    }
+
+    // Utilities - Compress JSON code blocks.
+    function compressJSONBlocks(markdown: string): string {
+        // visual/formula/highcharts are top-level fenced block types (e.g. ```visual) whose content is JSON;
+        // capture the language tag into group 1 and the JSON code into group 2 so it can be minified.
+        const regExp = /```(visual|formula|highcharts)\n([\s\S]*?)\n```/g;
+        return markdown.replace(regExp, (match, language, jsonCode): string => {
+            const trimmedJSONCode = jsonCode.trim();
+            try {
+                const stringifiedJsonCode = JSON.stringify(JSON.parse(trimmedJSONCode));
+                return ['```' + language, stringifiedJsonCode, '```'].join('\n');
+            } catch (error) {
+                console.error('JSON parsing error', error); // TODO: Use development error format.
+                return match;
+            }
+        });
+    }
+}

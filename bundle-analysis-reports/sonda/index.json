@@ -1,0 +1,97 @@
+{
+  "metadata": {
+    "version": "0.14.0",
+    "generatedAt": "2026-08-05T11:28:34.738Z",
+    "integration": "vite",
+    "sources": false,
+    "gzip": false,
+    "brotli": true
+  },
+  "resources": [
+    {
+      "kind": "sourcemap",
+      "name": "[unassigned]",
+      "type": "other",
+      "format": "other",
+      "uncompressed": 0,
+      "parent": null
+    },
+    {
+      "kind": "chunk",
+      "name": "[unassigned]",
+      "type": "other",
+      "format": "other",
+      "uncompressed": 5898,
+      "gzip": 0,
+      "brotli": 1241,
+      "parent": "dist/dpuse-presenter-samples.es.js"
+    },
+    {
+      "kind": "filesystem",
+      "name": "config.json",
+      "type": "script",
+      "format": "esm",
+      "uncompressed": 3049
+    },
+    {
+      "kind": "filesystem",
+      "name": "configPresentations.json",
+      "type": "script",
+      "format": "esm",
+      "uncompressed": 2505
+    },
+    {
+      "kind": "asset",
+      "name": "dist/dpuse-presenter-samples.es.js",
+      "type": "script",
+      "uncompressed": 8756,
+      "gzip": 0,
+      "brotli": 2130
+    },
+    {
+      "kind": "filesystem",
+      "name": "src/index.ts",
+      "type": "script",
+      "format": "esm",
+      "uncompressed": 3629
+    },
+    {
+      "kind": "chunk",
+      "name": "src/index.ts",
+      "type": "script",
+      "format": "esm",
+      "uncompressed": 2313,
+      "gzip": 0,
+      "brotli": 690,
+      "parent": "dist/dpuse-presenter-samples.es.js"
+    },
+    {
+      "kind": "filesystem",
+      "name": "src/sampleData/d3SampleData.ts",
+      "type": "script",
+      "format": "esm",
+      "uncompressed": 742
+    },
+    {
+      "kind": "chunk",
+      "name": "src/sampleData/d3SampleData.ts",
+      "type": "script",
+      "format": "esm",
+      "uncompressed": 545,
+      "gzip": 0,
+      "brotli": 199,
+      "parent": "dist/dpuse-presenter-samples.es.js"
+    }
+  ],
+  "connections": [
+    {
+      "kind": "entrypoint",
+      "source": "dist/dpuse-presenter-samples.es.js",
+      "target": "src/index.ts",
+      "original": null
+    }
+  ],
+  "dependencies": [],
+  "issues": [],
+  "sourcemaps": []
+}
