@@ -1,5 +1,5 @@
 // ── DPUse Framework
-import type { ComponentReference } from '@dpuse/dpuse-shared/component';
+import type { ComponentReferenceConfig } from '@dpuse/dpuse-shared/component';
 import type { LocalisedReference } from '@dpuse/dpuse-shared/locale';
 import type { PresentationConfig } from '@dpuse/dpuse-shared/component/presentation';
 import type { ToolConfig } from '@dpuse/dpuse-shared/component/module/tool';
@@ -32,11 +32,11 @@ export default class SamplesPresenter implements PresenterInterface {
 
     // ── Actions ──────────────────────────────────────────────────────────────────────────────────────────────────────
 
-    list(): ComponentReference[] {
+    list(): ComponentReferenceConfig[] {
         return this.config.presentations;
     }
 
-    async render(presentationReference: LocalisedReference<ComponentReference>, renderTo: HTMLElement): Promise<void> {
+    async render(presentationReference: LocalisedReference<ComponentReferenceConfig>, renderTo: HTMLElement): Promise<void> {
         // Use presentation path to retrieve presentation.
         const presentationPath = presentationReference.path as keyof typeof configPresentations;
         const presentationLabel = presentationReference.label;
