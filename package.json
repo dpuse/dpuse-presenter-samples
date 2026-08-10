@@ -1,6 +1,6 @@
 {
     "name": "@dpuse/dpuse-presenter-samples",
-    "version": "0.0.7",
+    "version": "0.0.8",
     "private": false,
     "description": "A library that implements the samples presenter in accordance with the Data Positioning presenter interface.",
     "license": "MIT",
@@ -58,7 +58,7 @@
     },
     "dependencies": {
         "@dpuse/dpuse-shared": "^0.3.769",
-        "@dpuse/dpuse-tool-d3-visualiser": "^0.0.41",
+        "@dpuse/dpuse-tool-d3-visualiser": "^0.0.45",
         "@dpuse/dpuse-tool-micromark-markdown-parser": "^0.1.1039"
     },
     "devDependencies": {

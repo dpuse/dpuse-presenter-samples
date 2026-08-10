@@ -99,7 +99,7 @@ export default class SamplesPresenter implements PresenterInterface {
                 await this.d3Tool.renderD3BarChart(barChartSampleData, renderTo);
                 break;
             case 'd3/barChartTanStack':
-                await this.d3Tool.renderTanStackCharts(barChartSampleData, renderTo);
+                await this.d3Tool.renderTanStackCharts(barChartSampleData, renderTo, this.sanitizeHTML);
                 break;
         }
     }
