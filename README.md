@@ -34,11 +34,11 @@ _Note: Sonda's Vite reports currently exclude CSS files, since Vite does not gen
 
 |Chunk/Module/File|Composition|
 |:------ |:-----------|
-| dist/dpuse-presenter-samples.es.js | 8.6 kB · brotli 2.1 kB |
-| &nbsp;&nbsp;&nbsp;&nbsp;(unassigned) → [unassigned] | `█████████████░░░░░░░` 67.4% |
-| &nbsp;&nbsp;&nbsp;&nbsp;src | `███████░░░░░░░░░░░░░` 32.6% |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;index.ts | `█████░░░░░░░░░░░░░░░` 26.4% |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d3SampleData.ts | `█░░░░░░░░░░░░░░░░░░░` 6.2% |
+| dist/dpuse-presenter-samples.es.js | 10.1 kB · brotli 2.3 kB |
+| &nbsp;&nbsp;&nbsp;&nbsp;(unassigned) → [unassigned] | `█████████████░░░░░░░` 66.4% |
+| &nbsp;&nbsp;&nbsp;&nbsp;src | `███████░░░░░░░░░░░░░` 33.6% |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;index.ts | `█████░░░░░░░░░░░░░░░` 23.9% |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d3SampleData.ts | `██░░░░░░░░░░░░░░░░░░` 9.7% |
 
 (unassigned) = bytes Sonda can't trace to a specific source line (whitespace, stray keywords, bundler-injected region markers) — not actual missing/unknown code.
 
