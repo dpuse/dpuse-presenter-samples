@@ -1,9 +1,12 @@
+// ── External Dependencies & Registrations
+import DOMPurify from 'dompurify';
+
 // ── DPUse Framework
 import type { ComponentReferenceConfig } from '@dpuse/dpuse-shared/component';
 import type { LocalisedReference } from '@dpuse/dpuse-shared/locale';
 import type { PresentationConfig } from '@dpuse/dpuse-shared/component/presentation';
 import type { ToolConfig } from '@dpuse/dpuse-shared/component/module/tool';
-import type { PresenterConfig, PresenterInterface, SanitizeHTML } from '@dpuse/dpuse-shared/component/module/presenter';
+import type { PresenterConfig, PresenterInterface } from '@dpuse/dpuse-shared/component/module/presenter';
 
 // ── DPUse Tools
 import type { D3Tool as D3ToolType } from '@dpuse/dpuse-tool-d3-visualiser';
@@ -19,17 +22,15 @@ import { barChartSampleData, chordDiagramSampleData, sankeyDiagramSampleData } f
 export default class SamplesPresenter implements PresenterInterface {
     readonly config: PresenterConfig;
     colorModeId: string;
-    readonly sanitizeHTML: SanitizeHTML;
     readonly toolConfigs;
 
     d3Tool?: D3ToolType;
     micromarkTool?: MicromarkTool;
 
-    constructor(toolConfigs: ToolConfig[], colorModeId: string, sanitizeHTML: SanitizeHTML) {
+    constructor(toolConfigs: ToolConfig[], colorModeId: string) {
         this.config = config as PresenterConfig;
         this.toolConfigs = toolConfigs;
         this.colorModeId = colorModeId;
-        this.sanitizeHTML = sanitizeHTML;
     }
 
     // ── Actions ──────────────────────────────────────────────────────────────────────────────────────────────────────
@@ -51,10 +52,7 @@ export default class SamplesPresenter implements PresenterInterface {
         // Render markdown to HTML.
         this.micromarkTool = await this.loadMicromarkTool();
         const html = await this.micromarkTool.render(processedMarkdown, { directives: true, tables: true });
-        // renderTo.innerHTML = html;
-        // 'as string' is required because lib.dom.d.ts types 'innerHTML' as plain 'string', not 'string | TrustedHTML' -
-        // TypeScript's DOM types don't model the Trusted Types union here even though browsers accept a TrustedHTML value.
-        renderTo.innerHTML = this.sanitizeHTML(html) as string;
+        renderTo.innerHTML = DOMPurify.sanitize(html);
         // colorModeId is passed explicitly (rather than relying on the tool's own state) because micromarkTool is
         // lazily created above: any setColorMode() call received before this instance existed never reached it, so
         // its internal state could still be the 'light' default even if this.colorModeId is 'dark'.
@@ -99,7 +97,7 @@ export default class SamplesPresenter implements PresenterInterface {
                 await this.d3Tool.renderD3BarChart(barChartSampleData, renderTo);
                 break;
             case 'd3/barChartTanStack':
-                await this.d3Tool.renderTanStackCharts(barChartSampleData, renderTo, this.sanitizeHTML);
+                await this.d3Tool.renderTanStackCharts(barChartSampleData, renderTo);
                 break;
         }
     }
