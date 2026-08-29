@@ -111,8 +111,8 @@ export default class SamplesPresenter implements PresenterInterface {
         this.ensureD3ToolStylesheetLoaded(toolModuleConfig.version);
 
         const url = `https://engine-eu.dpuse.app/tools/d3-visualiser_v${toolModuleConfig.version}/dpuse-tool-d3-visualiser.es.js`;
-        const module = (await import(/* @vite-ignore */ url)) as { D3Tool: new () => D3Tool };
-        const D3Tool = module.D3Tool;
+        const module = (await import(/* @vite-ignore */ url)) as { Tool: new () => D3Tool };
+        const D3Tool = module.Tool;
         return new D3Tool();
     }
 
