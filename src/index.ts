@@ -9,7 +9,7 @@ import type { ToolConfig } from '@dpuse/dpuse-shared/component/module/tool';
 import type { PresenterConfig, PresenterInterface } from '@dpuse/dpuse-shared/component/module/presenter';
 
 // ── DPUse Tools
-import type { D3Tool as D3ToolType } from '@dpuse/dpuse-tool-d3-visualiser';
+import type { Tool as D3Tool } from '@dpuse/dpuse-tool-d3-visualiser';
 import type { MicromarkTool } from '@dpuse/dpuse-tool-micromark-markdown-parser';
 
 // ── Data
@@ -24,7 +24,7 @@ export default class SamplesPresenter implements PresenterInterface {
     colorModeId: string;
     readonly toolConfigs;
 
-    d3Tool?: D3ToolType;
+    d3Tool?: D3Tool;
     micromarkTool?: MicromarkTool;
 
     constructor(toolConfigs: ToolConfig[], colorModeId: string) {
@@ -102,7 +102,7 @@ export default class SamplesPresenter implements PresenterInterface {
         }
     }
 
-    private async loadD3Tool(): Promise<D3ToolType> {
+    private async loadD3Tool(): Promise<D3Tool> {
         if (this.d3Tool) return this.d3Tool;
 
         const toolModuleConfig = this.toolConfigs.find((config) => config.id === 'dpuse-tool-d3-visualiser');
@@ -111,7 +111,7 @@ export default class SamplesPresenter implements PresenterInterface {
         this.ensureD3ToolStylesheetLoaded(toolModuleConfig.version);
 
         const url = `https://engine-eu.dpuse.app/tools/d3-visualiser_v${toolModuleConfig.version}/dpuse-tool-d3-visualiser.es.js`;
-        const module = (await import(/* @vite-ignore */ url)) as { D3Tool: new () => D3ToolType };
+        const module = (await import(/* @vite-ignore */ url)) as { D3Tool: new () => D3Tool };
         const D3Tool = module.D3Tool;
         return new D3Tool();
     }
