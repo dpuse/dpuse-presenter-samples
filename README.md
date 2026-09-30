@@ -62,7 +62,7 @@ There's no need to install this presenter manually. Once released, it is uploade
 
 ## Dependency Licenses
 
-License data is updated each time `npm run document` is run, using [license-checker](https://github.com/RSeidelsohn/license-checker-rseidelsohn). The following table lists all production dependencies. These dependencies (including transitive ones) have been checked and confirmed to use https://d3js.org/LICENSE, Apache-2.0, BSD-2-Clause, BSD-3-Clause, CC0-1.0, EPL-2.0, ISC, MIT, Unlicense, or 0BSD — all permissive, commercially-friendly licenses. Users of the uploaded library are covered by these checks; developers cloning this repository should independently verify development dependencies.
+License data is updated each time `npm run document` is run, using [license-checker](https://github.com/RSeidelsohn/license-checker-rseidelsohn). The following table lists all production dependencies. These dependencies (including transitive ones) have been checked and confirmed to use Apache-2.0, BSD-2-Clause, BSD-3-Clause, CC0-1.0, EPL-2.0, ISC, MIT, Unlicense, or 0BSD — all permissive, commercially-friendly licenses. Users of the uploaded library are covered by these checks; developers cloning this repository should independently verify development dependencies.
 
 | Dependency                                                                                                   |  Version  | License(s)              | Document                                                                                          |
 | :----------------------------------------------------------------------------------------------------------- | :-------: | :---------------------- | :------------------------------------------------------------------------------------------------ |
@@ -843,12 +843,12 @@ _Note: Sonda's Vite reports currently exclude CSS files, since Vite does not gen
 
 | Chunk/Module/File                                               | Composition                  |
 | :-------------------------------------------------------------- | :--------------------------- |
-| dist/dpuse-presenter-samples.es.js                              | 42.2 kB · gzip 13.8 kB       |
-| &nbsp;&nbsp;&nbsp;&nbsp;dompurify → dist/purify.es.mjs          | `██████████████░░░░░░` 72.3% |
-| &nbsp;&nbsp;&nbsp;&nbsp;(bundler output, whitespace & JSON)     | `████░░░░░░░░░░░░░░░░` 19.7% |
-| &nbsp;&nbsp;&nbsp;&nbsp;src                                     | `██░░░░░░░░░░░░░░░░░░` 7.9%  |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;index.ts        | `█░░░░░░░░░░░░░░░░░░░` 5.6%  |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d3SampleData.ts | `░░░░░░░░░░░░░░░░░░░░` 2.3%  |
+| dist/dpuse-presenter-samples.es.js                              | 43.8 kB · gzip 14.2 kB       |
+| &nbsp;&nbsp;&nbsp;&nbsp;dompurify → dist/purify.es.mjs          | `███████████████░░░░░` 73.1% |
+| &nbsp;&nbsp;&nbsp;&nbsp;(bundler output, whitespace & JSON)     | `████░░░░░░░░░░░░░░░░` 19.3% |
+| &nbsp;&nbsp;&nbsp;&nbsp;src                                     | `██░░░░░░░░░░░░░░░░░░` 7.6%  |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;index.ts        | `█░░░░░░░░░░░░░░░░░░░` 5.4%  |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d3SampleData.ts | `░░░░░░░░░░░░░░░░░░░░` 2.2%  |
 
 (bundler output, whitespace & JSON) = bytes Sonda can't trace to a source file: whitespace (indentation and line breaks), code the bundler generates (region comments, the combined import/export lines, its small runtime helper and wrappers), and imported JSON such as `config.json`, which the bundler doesn't map. The JSON and the generated code are real bytes that ship; the whitespace mostly disappears once compressed.
 
