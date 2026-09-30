@@ -2,11 +2,7 @@
 import DOMPurify from 'dompurify';
 
 // ── DPUse Framework
-import type { ComponentReferenceConfig } from '@dpuse/dpuse-shared/component';
-import type { LocalisedReference } from '@dpuse/dpuse-shared/locale';
-import type { PresentationConfig } from '@dpuse/dpuse-shared/component/presentation';
-import type { ToolConfig } from '@dpuse/dpuse-shared/component/module/tool';
-import type { PresenterConfig, PresenterInterface } from '@dpuse/dpuse-shared/component/module/presenter';
+import type { ComponentReferenceConfig, LocalisedReference, PresentationConfig, PresenterConfig, PresenterInterface, ToolConfig } from '@dpuse/dpuse-shared';
 
 // ── DPUse Tools
 import type { Tool as D3Tool } from '@dpuse/dpuse-tool-d3-visualiser';
