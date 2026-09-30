@@ -730,7 +730,7 @@ The dependency tree below lists every package in this project — direct and tra
         - **[d3-interpolate](https://github.com/d3/d3-interpolate)** 3.0.1 — **63 months** ago: 2021-06-05 ⚠️
         - **[d3-selection](https://github.com/d3/d3-selection)** 3.0.0 — **63 months** ago: 2021-06-07 ⚠️
         - **[d3-transition](https://github.com/d3/d3-transition)** 3.0.1 — **63 months** ago: 2021-06-09 ⚠️
-- **[@dpuse/dpuse-tool-micromark-markdown-parser](https://github.com/dpuse/dpuse-tool-micromark-markdown-parser)** 0.1.1043 — this month: 2026-09-22
+- **[@dpuse/dpuse-tool-micromark-markdown-parser](https://github.com/dpuse/dpuse-tool-micromark-markdown-parser)** 0.1.1043 — this month: 2026-09-22 → **latest**: 0.1.1050 — this month: 2026-09-30 ❗
     - **[@speed-highlight/core](https://github.com/speed-highlight/core)** 2.1.0 — **1 month** ago: 2026-08-25
     - **[micromark-extension-directive](https://github.com/micromark/micromark-extension-directive)** 4.0.0 — **19 months** ago: 2025-02-27 ⚠️
         - **[devlop](https://github.com/wooorm/devlop)** 1.1.0 — **39 months** ago: 2023-06-29 ⚠️
