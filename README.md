@@ -1,4 +1,4 @@
-# Data Positioning Samples Presenter
+# DPUse Samples Presenter
 
 [![npm version](https://img.shields.io/npm/v/@dpuse/dpuse-presenter-samples)](https://www.npmjs.com/package/@dpuse/dpuse-presenter-samples)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
@@ -112,15 +112,17 @@ This report is updated with each release, from the bundle the release builds, us
 
 _Note: Sonda's Vite reports currently exclude CSS files, since Vite does not generate source maps for CSS._
 
-| Chunk/Module/File                                                     | Composition                  |
-| :-------------------------------------------------------------------- | :--------------------------- |
-| dist/dpuse-presenter-samples.es.js                                    | 53.1 kB · gzip 16.8 kB       |
-| &nbsp;&nbsp;&nbsp;&nbsp;dompurify → dist/purify.es.mjs                | `████████████░░░░░░░░` 60.4% |
-| &nbsp;&nbsp;&nbsp;&nbsp;(bundler output, whitespace & JSON)           | `████░░░░░░░░░░░░░░░░` 18.2% |
-| &nbsp;&nbsp;&nbsp;&nbsp;@dpuse/dpuse-shared → dist/dpuse-shared.es.js | `███░░░░░░░░░░░░░░░░░` 16.0% |
-| &nbsp;&nbsp;&nbsp;&nbsp;src                                           | `█░░░░░░░░░░░░░░░░░░░` 5.4%  |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;index.ts              | `█░░░░░░░░░░░░░░░░░░░` 3.6%  |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d3SampleData.ts       | `░░░░░░░░░░░░░░░░░░░░` 1.8%  |
+| Chunk/Module/File                                                     | Composition                                  |
+| :-------------------------------------------------------------------- | :------------------------------------------- |
+| **dist/dpuse-presenter-samples.es.js**                                | 53.1 kB · gzip 16.8 kB · 100.0% of the build |
+| &nbsp;&nbsp;&nbsp;&nbsp;dompurify → dist/purify.es.mjs                | `████████████░░░░░░░░` 60.4% · 32.0 kB       |
+| &nbsp;&nbsp;&nbsp;&nbsp;@dpuse/dpuse-shared → dist/dpuse-shared.es.js | `███░░░░░░░░░░░░░░░░░` 16.0% · 8.5 kB        |
+| &nbsp;&nbsp;&nbsp;&nbsp;src                                           | `█░░░░░░░░░░░░░░░░░░░` 5.4% · 2.9 kB         |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↳ index.ts            | `▒░░░░░░░░░░░░░░░░░░░` 3.6% · 1.9 kB         |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↳ d3SampleData.ts     | `░░░░░░░░░░░░░░░░░░░░` 1.8% · 1003 B         |
+| &nbsp;&nbsp;&nbsp;&nbsp;(bundler output, whitespace & JSON)           | `████░░░░░░░░░░░░░░░░` 18.2% · 9.6 kB        |
+
+Bars show each row's share of its output file. ↳ rows are part of the row above.
 
 (bundler output, whitespace & JSON) = bytes Sonda can't trace to a source file: whitespace (indentation and line breaks), code the bundler generates (region comments, the combined import/export lines, its small runtime helper and wrappers), and imported JSON such as `config.json`, which the bundler doesn't map. The JSON and the generated code are real bytes that ship; the whitespace mostly disappears once compressed.
 

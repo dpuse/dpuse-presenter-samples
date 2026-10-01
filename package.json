@@ -1,6 +1,6 @@
 {
     "name": "@dpuse/dpuse-presenter-samples",
-    "version": "0.0.19",
+    "version": "0.0.20",
     "private": false,
     "description": "A library that implements the samples presenter in accordance with the Data Positioning presenter interface.",
     "license": "MIT",
@@ -66,7 +66,7 @@
         "dompurify": "^3.4.16"
     },
     "devDependencies": {
-        "@dpuse/dpuse-development": "^0.3.802",
+        "@dpuse/dpuse-development": "^0.3.808",
         "@dpuse/dpuse-tool-d3-visualiser": "^0.0.52",
         "@dpuse/dpuse-tool-micromark-markdown-parser": "^0.1.1051",
         "@dpuse/eslint-config-dpuse": "^1.0.124",
@@ -77,7 +77,7 @@
         "prettier": "^3.9.9",
         "sonda": "^0.14.0",
         "typescript": "^6.0.3",
-        "vite": "^8.3.1",
+        "vite": "^8.3.2",
         "vite-plugin-dts": "^5.1.1",
         "vitest": "^5.0.3",
         "wrangler": "^4.145.0"
