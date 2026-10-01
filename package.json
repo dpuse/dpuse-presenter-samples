@@ -1,6 +1,6 @@
 {
     "name": "@dpuse/dpuse-presenter-samples",
-    "version": "0.0.20",
+    "version": "0.0.21",
     "private": false,
     "description": "A library that implements the samples presenter in accordance with the Data Positioning presenter interface.",
     "license": "MIT",
@@ -54,7 +54,7 @@
         "prebuild": "node scripts/prebuild.ts",
         "build": "node -e \"import('@dpuse/dpuse-development').then(m => m.buildProject())\"",
         "check": "node -e \"import('@dpuse/dpuse-development').then(m => m.checkProject())\"",
-        "document": "node -e \"import('@dpuse/dpuse-development').then(m => m.documentProject('Apache-2.0;BSD-2-Clause;BSD-3-Clause;CC0-1.0;EPL-2.0;ISC;MIT;Unlicense;0BSD'))\"",
+        "document": "node -e \"import('@dpuse/dpuse-development').then(m => m.documentProject('Apache-2.0;BSD-3-Clause;MIT'))\"",
         "format": "node -e \"import('@dpuse/dpuse-development').then(m => m.formatCode())\"",
         "lint": "node -e \"import('@dpuse/dpuse-development').then(m => m.lintCode())\"",
         "release": "npm run build && npm run document && npm run sync && gh release create \"v$(npm pkg get version | tr -d '\"')\" --target \"$(git rev-parse HEAD)\" --generate-notes --latest",
