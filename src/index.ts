@@ -2,11 +2,12 @@
 import DOMPurify from 'dompurify';
 
 // ── DPUse Framework
+import { loadTool } from '@dpuse/dpuse-shared';
 import type { ComponentReferenceConfig, LocalisedReference, PresentationConfig, PresenterConfig, PresenterInterface, ToolConfig } from '@dpuse/dpuse-shared';
 
 // ── DPUse Tools
 import type { Tool as D3Tool } from '@dpuse/dpuse-tool-d3-visualiser';
-import type { MicromarkTool } from '@dpuse/dpuse-tool-micromark-markdown-parser';
+import type { Tool as MicromarkTool } from '@dpuse/dpuse-tool-micromark-markdown-parser';
 
 // ── Data
 import config from '~/config.json';
@@ -46,7 +47,7 @@ export default class SamplesPresenter implements PresenterInterface {
         const processedMarkdown = presentation.content.replaceAll('{{label}}', () => presentationLabel);
 
         // Render markdown to HTML.
-        this.micromarkTool = await this.loadMicromarkTool();
+        this.micromarkTool ??= await loadTool<MicromarkTool>(this.toolConfigs, 'micromark-markdown-parser');
         const html = await this.micromarkTool.render(processedMarkdown, { directives: true, tables: true });
         renderTo.innerHTML = DOMPurify.sanitize(html);
         // colorModeId is passed explicitly (rather than relying on the tool's own state) because micromarkTool is
@@ -106,10 +107,7 @@ export default class SamplesPresenter implements PresenterInterface {
 
         this.ensureD3ToolStylesheetLoaded(toolModuleConfig.version);
 
-        const url = `https://engine-eu.dpuse.app/tools/d3-visualiser_v${toolModuleConfig.version}/dpuse-tool-d3-visualiser.es.js`;
-        const module = (await import(/* @vite-ignore */ url)) as { Tool: new () => D3Tool };
-        const D3Tool = module.Tool;
-        return new D3Tool();
+        return loadTool<D3Tool>(this.toolConfigs, 'd3-visualiser');
     }
 
     // Billboard.js (used by renderBillboardJS) requires its own stylesheet - unlike the SVG-only renderers, it won't
@@ -123,17 +121,5 @@ export default class SamplesPresenter implements PresenterInterface {
         link.rel = 'stylesheet';
         link.href = href;
         document.head.append(link);
-    }
-
-    private async loadMicromarkTool(): Promise<MicromarkTool> {
-        if (this.micromarkTool) return this.micromarkTool;
-
-        const toolModuleConfig = this.toolConfigs.find((config) => config.id === 'dpuse-tool-micromark-markdown-parser');
-        if (!toolModuleConfig) throw new Error('No Micromark tool module configuration.');
-
-        const url = `https://engine-eu.dpuse.app/tools/micromark-markdown-parser_v${toolModuleConfig.version}/dpuse-tool-micromark-markdown-parser.es.js`;
-        const module = (await import(/* @vite-ignore */ url)) as { MicromarkTool: new () => MicromarkTool };
-        const MicromarkToolConstructor = module.MicromarkTool;
-        return new MicromarkToolConstructor();
     }
 }

@@ -1,7 +1,7 @@
 {
   "metadata": {
     "version": "0.14.0",
-    "generatedAt": "2026-09-30T11:48:02.005Z",
+    "generatedAt": "2026-10-01T09:33:23.680Z",
     "integration": "vite",
     "sources": false,
     "gzip": true,
@@ -21,8 +21,8 @@
       "name": "[unassigned]",
       "type": "other",
       "format": "other",
-      "uncompressed": 8663,
-      "gzip": 1773,
+      "uncompressed": 9869,
+      "gzip": 1863,
       "brotli": 0,
       "parent": "dist/dpuse-presenter-samples.es.js"
     },
@@ -44,9 +44,26 @@
       "kind": "asset",
       "name": "dist/dpuse-presenter-samples.es.js",
       "type": "script",
-      "uncompressed": 44872,
-      "gzip": 14578,
+      "uncompressed": 54341,
+      "gzip": 17244,
       "brotli": 0
+    },
+    {
+      "kind": "filesystem",
+      "name": "node_modules/@dpuse/dpuse-shared/dist/dpuse-shared.es.js",
+      "type": "script",
+      "format": "esm",
+      "uncompressed": 33907
+    },
+    {
+      "kind": "chunk",
+      "name": "node_modules/@dpuse/dpuse-shared/dist/dpuse-shared.es.js",
+      "type": "script",
+      "format": "esm",
+      "uncompressed": 8714,
+      "gzip": 2794,
+      "brotli": 0,
+      "parent": "dist/dpuse-presenter-samples.es.js"
     },
     {
       "kind": "filesystem",
@@ -60,8 +77,8 @@
       "name": "node_modules/dompurify/dist/purify.es.mjs",
       "type": "script",
       "format": "esm",
-      "uncompressed": 32794,
-      "gzip": 11583,
+      "uncompressed": 32813,
+      "gzip": 11442,
       "brotli": 0,
       "parent": "dist/dpuse-presenter-samples.es.js"
     },
@@ -70,15 +87,15 @@
       "name": "src/index.ts",
       "type": "script",
       "format": "esm",
-      "uncompressed": 3820
+      "uncompressed": 3118
     },
     {
       "kind": "chunk",
       "name": "src/index.ts",
       "type": "script",
       "format": "esm",
-      "uncompressed": 2413,
-      "gzip": 880,
+      "uncompressed": 1942,
+      "gzip": 809,
       "brotli": 0,
       "parent": "dist/dpuse-presenter-samples.es.js"
     },
@@ -94,8 +111,8 @@
       "name": "src/sampleData/d3SampleData.ts",
       "type": "script",
       "format": "esm",
-      "uncompressed": 1002,
-      "gzip": 342,
+      "uncompressed": 1003,
+      "gzip": 337,
       "brotli": 0,
       "parent": "dist/dpuse-presenter-samples.es.js"
     }
@@ -109,6 +126,12 @@
     }
   ],
   "dependencies": [
+    {
+      "name": "@dpuse/dpuse-shared",
+      "paths": [
+        "node_modules/@dpuse/dpuse-shared"
+      ]
+    },
     {
       "name": "dompurify",
       "paths": [
