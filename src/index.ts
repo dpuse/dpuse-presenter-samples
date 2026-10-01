@@ -16,7 +16,7 @@ import { barChartSampleData, chordDiagramSampleData, sankeyDiagramSampleData } f
 
 // ── Presenters ───────────────────────────────────────────────────────────────────────────────────────────────────────
 
-export default class SamplesPresenter implements PresenterInterface {
+export class Presenter implements PresenterInterface {
     readonly config: PresenterConfig;
     colorModeId: string;
     readonly toolConfigs;
@@ -123,3 +123,7 @@ export default class SamplesPresenter implements PresenterInterface {
         document.head.append(link);
     }
 }
+
+// TODO: Remove once every running app loads presenters through the named 'Presenter' export; until then, older app builds
+// still load the default one.
+// export default Presenter;
