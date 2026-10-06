@@ -4,7 +4,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=dpuse_dpuse_dpuse-presenter-samples&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=data-positioning_dpuse-presenter-samples)
 
-A library that implements the samples presenter in accordance with the Data Positioning presenter interface. It showcases the chart renderers exposed by `@dpuse/dpuse-tool-d3-visualiser` (Sankey diagram, and bar charts via Billboard.js, Observable Plot, native D3 and TanStack Charts).
+A library that implements the samples presenter in accordance with the Data Positioning presenter interface. It showcases the chart renderers exposed by `@dpuse/dpuse-tool-d3-visualiser` (Sankey diagram, and bar chart via TanStack Charts).
 
 <!-- OPENING_START -->
 
@@ -30,7 +30,7 @@ In addition, DPUse provides [Tools](https://www.dpuse.app) used by the applicati
 
 ## Introduction
 
-A presenter that showcases chart-rendering samples from the Data Positioning D3 visualiser tool (Sankey diagram, and bar charts via Billboard.js, Observable Plot, native D3 and TanStack Charts).
+A presenter that showcases chart-rendering samples from the Data Positioning D3 visualiser tool (Sankey diagram, and bar chart via TanStack Charts).
 
 <!-- OPENING_END -->
 
@@ -64,7 +64,7 @@ License data is updated each time `npm run document` is run, using [license-chec
 
 | Dependency                                                   | Version | License(s)              | Document                                                              |
 | :----------------------------------------------------------- | :-----: | :---------------------- | :-------------------------------------------------------------------- |
-| [@dpuse/dpuse-shared](https://github.com/dpuse/dpuse-shared) | 1.0.113 | MIT                     | [LICENSE](licenses/downloads/@dpuse/dpuse-shared@1.0.113-LICENSE.txt) |
+| [@dpuse/dpuse-shared](https://github.com/dpuse/dpuse-shared) | 1.0.116 | MIT                     | [LICENSE](licenses/downloads/@dpuse/dpuse-shared@1.0.116-LICENSE.txt) |
 | [dompurify](https://github.com/cure53/DOMPurify)             | 3.4.16  | (MPL-2.0 OR Apache-2.0) | [LICENSE](licenses/downloads/dompurify@3.4.16-LICENSE.txt)            |
 | [valibot](https://github.com/open-circle/valibot)            |  1.5.0  | MIT                     | [LICENSE](licenses/downloads/valibot@1.5.0-LICENSE.txt)               |
 
@@ -72,7 +72,7 @@ License data is updated each time `npm run document` is run, using [license-chec
 
 The dependency tree below shows how each package in the table above is reached — direct and transitive — along with its installed version, release date, and update status. A package that does not ship itself, such as one whose parts are bundled separately, is left out and what ships beneath it is shown in its place. Packages flagged ❗ have a newer version available; ⚠️ indicates a package that hasn't been updated in the last 6 months or longer. Neither flag necessarily indicates a problem: we let new releases stabilise before upgrading, and some packages are mature and stable (have limited or no dependencies), so they require no active development.
 
-- **[@dpuse/dpuse-shared](https://github.com/dpuse/dpuse-shared)** 1.0.113 — this month: 2026-10-05 → latest: 1.0.116 — this month: 2026-10-06 ❗
+- **[@dpuse/dpuse-shared](https://github.com/dpuse/dpuse-shared)** 1.0.116 — this month: 2026-10-06
     - **[valibot](https://github.com/open-circle/valibot)** 1.5.0 — this month: 2026-09-09
 - **[dompurify](https://github.com/cure53/DOMPurify)** 3.4.16 — this month: 2026-09-23
 
@@ -88,13 +88,12 @@ _Note: Sonda's Vite reports currently exclude CSS files, since Vite does not gen
 
 | Chunk/Module/File                                                     | Composition                                  |
 | :-------------------------------------------------------------------- | :------------------------------------------- |
-| **dist/dpuse-presenter-samples.es.js**                                | 53.1 kB · gzip 16.8 kB · 100.0% of the build |
-| &nbsp;&nbsp;&nbsp;&nbsp;dompurify → dist/purify.es.mjs                | `████████████░░░░░░░░` 60.3% · 32.0 kB       |
-| &nbsp;&nbsp;&nbsp;&nbsp;@dpuse/dpuse-shared → dist/dpuse-shared.es.js | `███░░░░░░░░░░░░░░░░░` 16.0% · 8.5 kB        |
-| &nbsp;&nbsp;&nbsp;&nbsp;src                                           | `█░░░░░░░░░░░░░░░░░░░` 5.4% · 2.9 kB         |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↳ index.ts            | `▒░░░░░░░░░░░░░░░░░░░` 3.6% · 1.9 kB         |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↳ d3SampleData.ts     | `░░░░░░░░░░░░░░░░░░░░` 1.8% · 1003 B         |
-| &nbsp;&nbsp;&nbsp;&nbsp;(bundler output, whitespace & JSON)           | `████░░░░░░░░░░░░░░░░` 18.2% · 9.7 kB        |
+| **dist/dpuse-presenter-samples.es.js**                                | 49.9 kB · gzip 16.3 kB · 100.0% of the build |
+| &nbsp;&nbsp;&nbsp;&nbsp;dompurify → dist/purify.es.mjs                | `█████████████░░░░░░░` 64.2% · 32.0 kB       |
+| &nbsp;&nbsp;&nbsp;&nbsp;@dpuse/dpuse-shared → dist/dpuse-shared.es.js | `███░░░░░░░░░░░░░░░░░` 17.1% · 8.5 kB        |
+| &nbsp;&nbsp;&nbsp;&nbsp;src                                           | `█░░░░░░░░░░░░░░░░░░░` 4.2% · 2.1 kB         |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↳ 2 smaller files     | `▒░░░░░░░░░░░░░░░░░░░` 4.2% · 2.1 kB         |
+| &nbsp;&nbsp;&nbsp;&nbsp;(bundler output, whitespace & JSON)           | `███░░░░░░░░░░░░░░░░░` 14.6% · 7.3 kB        |
 
 Bars show each row's share of its output file. ↳ rows are part of the row above.
 

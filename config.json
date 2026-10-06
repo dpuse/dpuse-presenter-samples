@@ -4,7 +4,7 @@
         "en": "Samples Presenter"
     },
     "description": {
-        "en": "A presenter that showcases chart-rendering samples from the Data Positioning D3 visualiser tool (Sankey diagram, and bar charts via Billboard.js, Observable Plot, native D3 and TanStack Charts)."
+        "en": "A presenter that showcases chart-rendering samples from the Data Positioning D3 visualiser tool (Sankey diagram, and bar chart via TanStack Charts)."
     },
     "actionNames": [
         "list",
@@ -17,48 +17,6 @@
     "lastUpdatedAt": null,
     "presentations": [
         {
-            "id": "d3BarChartBillboard",
-            "label": {
-                "en": "Bar Chart (Billboard.js)"
-            },
-            "description": {
-                "en": "A grouped bar chart rendered with Billboard.js."
-            },
-            "icon": null,
-            "iconDark": null,
-            "order": 3,
-            "path": "d3/barChartBillboard",
-            "typeId": "presenterPresentation"
-        },
-        {
-            "id": "d3BarChartD3Native",
-            "label": {
-                "en": "Bar Chart (D3)"
-            },
-            "description": {
-                "en": "A grouped bar chart rendered with raw D3 primitives."
-            },
-            "icon": null,
-            "iconDark": null,
-            "order": 5,
-            "path": "d3/barChartD3Native",
-            "typeId": "presenterPresentation"
-        },
-        {
-            "id": "d3BarChartObservablePlot",
-            "label": {
-                "en": "Bar Chart (Observable Plot)"
-            },
-            "description": {
-                "en": "A grouped bar chart rendered with Observable Plot."
-            },
-            "icon": null,
-            "iconDark": null,
-            "order": 4,
-            "path": "d3/barChartObservablePlot",
-            "typeId": "presenterPresentation"
-        },
-        {
             "id": "d3BarChartTanStack",
             "label": {
                 "en": "Bar Chart (TanStack Charts)"
@@ -68,7 +26,7 @@
             },
             "icon": null,
             "iconDark": null,
-            "order": 6,
+            "order": 3,
             "path": "d3/barChartTanStack",
             "typeId": "presenterPresentation"
         },
@@ -107,5 +65,5 @@
     "vendorAccountURL": null,
     "vendorDocumentationURL": null,
     "vendorHomeURL": null,
-    "version": "1.0.107"
+    "version": "1.0.108"
 }

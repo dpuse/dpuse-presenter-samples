@@ -56,7 +56,7 @@ export class Presenter implements PresenterInterface {
         await this.micromarkTool.highlight(renderTo, this.colorModeId);
 
         // Render the sample chart for this presentation.
-        this.d3Tool = await this.loadD3Tool();
+        this.d3Tool ??= await loadTool<D3Tool>(this.toolConfigs, 'd3-visualiser');
 
         const chartContainer = document.createElement('div');
         chartContainer.className = 'h-80 w-full';
@@ -84,42 +84,9 @@ export class Presenter implements PresenterInterface {
             case 'd3/sankeyDiagram':
                 await this.d3Tool.renderSankeyDiagram(sankeyDiagramSampleData, renderTo);
                 break;
-            case 'd3/barChartBillboard':
-                await this.d3Tool.renderBillboardJS(barChartSampleData, renderTo);
-                break;
-            case 'd3/barChartObservablePlot':
-                await this.d3Tool.renderObservablePlot('bar', barChartSampleData, renderTo);
-                break;
-            case 'd3/barChartD3Native':
-                await this.d3Tool.renderD3BarChart(barChartSampleData, renderTo);
-                break;
             case 'd3/barChartTanStack':
                 await this.d3Tool.renderTanStackCharts(barChartSampleData, renderTo);
                 break;
         }
-    }
-
-    private async loadD3Tool(): Promise<D3Tool> {
-        if (this.d3Tool) return this.d3Tool;
-
-        const toolModuleConfig = this.toolConfigs.find((config) => config.id === 'dpuse-tool-d3-visualiser');
-        if (!toolModuleConfig) throw new Error('No D3 tool module configuration.');
-
-        this.ensureD3ToolStylesheetLoaded(toolModuleConfig.version);
-
-        return loadTool<D3Tool>(this.toolConfigs, 'd3-visualiser');
-    }
-
-    // Billboard.js (used by renderBillboardJS) requires its own stylesheet - unlike the SVG-only renderers, it won't
-    // look right without it. Injected as a <link> from the same engine origin the tool's JS already loads from,
-    // guarded so a second mount doesn't insert it twice.
-    private ensureD3ToolStylesheetLoaded(version: string): void {
-        const href = `https://engine-eu.dpuse.app/tools/d3-visualiser_v${version}/dpuse-tool-d3-visualiser.css`;
-        if (document.head.querySelector(`link[href="${CSS.escape(href)}"]`)) return;
-
-        const link = document.createElement('link');
-        link.rel = 'stylesheet';
-        link.href = href;
-        document.head.append(link);
     }
 }

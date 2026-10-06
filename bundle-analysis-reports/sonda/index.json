@@ -1,7 +1,7 @@
 {
   "metadata": {
     "version": "0.14.0",
-    "generatedAt": "2026-10-06T12:16:51.689Z",
+    "generatedAt": "2026-10-06T17:31:38.063Z",
     "integration": "vite",
     "sources": false,
     "gzip": true,
@@ -21,8 +21,8 @@
       "name": "[unassigned]",
       "type": "other",
       "format": "other",
-      "uncompressed": 9909,
-      "gzip": 1888,
+      "uncompressed": 7438,
+      "gzip": 1591,
       "brotli": 0,
       "parent": "dist/dpuse-presenter-samples.es.js"
     },
@@ -31,21 +31,21 @@
       "name": "config.json",
       "type": "script",
       "format": "esm",
-      "uncompressed": 3471
+      "uncompressed": 2687
     },
     {
       "kind": "filesystem",
       "name": "configPresentations.json",
       "type": "script",
       "format": "esm",
-      "uncompressed": 3017
+      "uncompressed": 1560
     },
     {
       "kind": "asset",
       "name": "dist/dpuse-presenter-samples.es.js",
       "type": "script",
-      "uncompressed": 54381,
-      "gzip": 17249,
+      "uncompressed": 51092,
+      "gzip": 16703,
       "brotli": 0
     },
     {
@@ -61,7 +61,7 @@
       "type": "script",
       "format": "esm",
       "uncompressed": 8714,
-      "gzip": 2790,
+      "gzip": 2798,
       "brotli": 0,
       "parent": "dist/dpuse-presenter-samples.es.js"
     },
@@ -78,7 +78,7 @@
       "type": "script",
       "format": "esm",
       "uncompressed": 32813,
-      "gzip": 11427,
+      "gzip": 11458,
       "brotli": 0,
       "parent": "dist/dpuse-presenter-samples.es.js"
     },
@@ -87,15 +87,15 @@
       "name": "src/index.ts",
       "type": "script",
       "format": "esm",
-      "uncompressed": 3103
+      "uncompressed": 2059
     },
     {
       "kind": "chunk",
       "name": "src/index.ts",
       "type": "script",
       "format": "esm",
-      "uncompressed": 1942,
-      "gzip": 808,
+      "uncompressed": 1124,
+      "gzip": 519,
       "brotli": 0,
       "parent": "dist/dpuse-presenter-samples.es.js"
     },
@@ -112,7 +112,7 @@
       "type": "script",
       "format": "esm",
       "uncompressed": 1003,
-      "gzip": 336,
+      "gzip": 337,
       "brotli": 0,
       "parent": "dist/dpuse-presenter-samples.es.js"
     }
