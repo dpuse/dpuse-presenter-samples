@@ -26,8 +26,13 @@ vi.mock('@dpuse/dpuse-shared', async (importOriginal) => ({
 
 const TOOL_CONFIGS = [{ id: 'dpuse-tool-d3-visualiser', version: '1.2.3' }];
 
+// The app passes its own DOMPurify sanitiser. This stand-in removes the one script the tests render.
+function sanitizeHTML(html: string): string {
+    return html.replace('<script>alert(1)</script>', '');
+}
+
 function createPresenter(): Presenter {
-    return new Presenter(TOOL_CONFIGS as never, 'dark');
+    return new Presenter(TOOL_CONFIGS as never, 'dark', sanitizeHTML);
 }
 
 function createReference(path: string): never {

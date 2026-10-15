@@ -1,6 +1,3 @@
-// ── External Dependencies & Registrations
-import DOMPurify from 'dompurify';
-
 // ── DPUse Framework
 import { loadTool } from '@dpuse/dpuse-shared';
 import type { ComponentReferenceConfig, LocalisedReference, PresentationConfig, PresenterConfig, PresenterInterface, ToolConfig } from '@dpuse/dpuse-shared';
@@ -19,15 +16,17 @@ import { barChartSampleData, chordDiagramSampleData, sankeyDiagramSampleData } f
 export class Presenter implements PresenterInterface {
     readonly config: PresenterConfig;
     colorModeId: string;
+    readonly sanitizeHTML; // The app's sanitiser, so the presenter does not bundle a second DOMPurify.
     readonly toolConfigs;
 
     d3Tool?: D3Tool;
     micromarkTool?: MicromarkTool;
 
-    constructor(toolConfigs: ToolConfig[], colorModeId: string) {
+    constructor(toolConfigs: ToolConfig[], colorModeId: string, sanitizeHTML: (html: string) => string) {
         this.config = config as PresenterConfig;
         this.toolConfigs = toolConfigs;
         this.colorModeId = colorModeId;
+        this.sanitizeHTML = sanitizeHTML;
     }
 
     // ── Actions ──────────────────────────────────────────────────────────────────────────────────────────────────────
@@ -49,7 +48,7 @@ export class Presenter implements PresenterInterface {
         // Render markdown to HTML.
         this.micromarkTool ??= await loadTool<MicromarkTool>(this.toolConfigs, 'micromark-markdown-parser');
         const html = await this.micromarkTool.render(processedMarkdown, { directives: true, tables: true });
-        renderTo.innerHTML = DOMPurify.sanitize(html);
+        renderTo.innerHTML = this.sanitizeHTML(html);
         // colorModeId is passed explicitly (rather than relying on the tool's own state) because micromarkTool is
         // lazily created above: any setColorMode() call received before this instance existed never reached it, so
         // its internal state could still be the 'light' default even if this.colorModeId is 'dark'.
