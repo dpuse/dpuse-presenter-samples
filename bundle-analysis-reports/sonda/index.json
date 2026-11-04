@@ -1,7 +1,7 @@
 {
   "metadata": {
     "version": "0.14.0",
-    "generatedAt": "2026-11-04T22:01:31.255Z",
+    "generatedAt": "2026-11-04T22:09:36.503Z",
     "integration": "vite",
     "sources": false,
     "gzip": true,
@@ -45,7 +45,7 @@
       "name": "dist/dpuse-presenter-samples.es.js",
       "type": "script",
       "uncompressed": 20096,
-      "gzip": 6265,
+      "gzip": 6266,
       "brotli": 0
     },
     {
