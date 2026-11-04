@@ -4,7 +4,7 @@
         "en": "Samples Presenter"
     },
     "description": {
-        "en": "A presenter that showcases chart-rendering samples from the Data Positioning D3 visualiser tool (Sankey diagram, and bar chart via TanStack Charts)."
+        "en": "A presenter that showcases chart-rendering samples from the Data Positioning D3 visualiser tool (Sankey diagram, and bar chart via TanStack Charts) and phoria2 visualiser tool (3D network topology)."
     },
     "actionNames": [
         "list",
@@ -57,6 +57,20 @@
             "order": 2,
             "path": "d3/sankeyDiagram",
             "typeId": "presenterPresentation"
+        },
+        {
+            "id": "phoria2NetworkTopology",
+            "label": {
+                "en": "Network Topology"
+            },
+            "description": {
+                "en": "A phoria2 3D map of a network, coloured by status, with live traffic along its links."
+            },
+            "icon": null,
+            "iconDark": null,
+            "order": 4,
+            "path": "phoria2/networkTopology",
+            "typeId": "presenterPresentation"
         }
     ],
     "status": null,
@@ -65,5 +79,5 @@
     "vendorAccountURL": null,
     "vendorDocumentationURL": null,
     "vendorHomeURL": null,
-    "version": "1.0.113"
+    "version": "1.0.114"
 }

@@ -5,10 +5,12 @@ import type { ComponentReferenceConfig, LocalisedReference, PresentationConfig, 
 // ── DPUse Tools
 import type { Tool as D3Tool } from '@dpuse/dpuse-tool-d3-visualiser';
 import type { Tool as MicromarkTool } from '@dpuse/dpuse-tool-micromark-markdown-parser';
+import type { Tool as Phoria2Tool, Phoria2View } from '@dpuse/dpuse-tool-phoria2-visualiser';
 
 // ── Data
 import config from '~/config.json';
 import configPresentations from '~/configPresentations.json';
+import { networkTopologySampleData } from '@/sampleData/phoria2SampleData';
 import { barChartSampleData, chordDiagramSampleData, sankeyDiagramSampleData } from '@/sampleData/d3SampleData';
 
 // ── Presenters ───────────────────────────────────────────────────────────────────────────────────────────────────────
@@ -21,6 +23,8 @@ export class Presenter implements PresenterInterface {
 
     d3Tool?: D3Tool;
     micromarkTool?: MicromarkTool;
+    phoria2Tool?: Phoria2Tool;
+    phoria2View?: Phoria2View | undefined; // The phoria2 sample on screen, which holds a WebGL context until it is destroyed.
 
     constructor(toolConfigs: ToolConfig[], colorModeId: string, sanitizeHTML: (html: string) => string) {
         this.config = config as PresenterConfig;
@@ -36,6 +40,11 @@ export class Presenter implements PresenterInterface {
     }
 
     async render(presentationReference: LocalisedReference<ComponentReferenceConfig>, renderTo: HTMLElement): Promise<void> {
+        // The app gives each presentation a new container and drops the old one, but nothing tells the presenter.
+        // Browsers allow only about 16 WebGL contexts per page, so the previous phoria2 sample is freed here.
+        this.phoria2View?.destroy();
+        this.phoria2View = undefined;
+
         // Use presentation path to retrieve presentation.
         const presentationPath = presentationReference.path as keyof typeof configPresentations;
         const presentationLabel = presentationReference.label;
@@ -85,6 +94,10 @@ export class Presenter implements PresenterInterface {
                 break;
             case 'd3/barChartTanStack':
                 await this.d3Tool.renderTanStackCharts(barChartSampleData, renderTo);
+                break;
+            case 'phoria2/networkTopology':
+                this.phoria2Tool ??= await loadTool<Phoria2Tool>(this.toolConfigs, 'phoria2-visualiser');
+                this.phoria2View = await this.phoria2Tool.renderNetworkTopology(networkTopologySampleData, renderTo);
                 break;
         }
     }

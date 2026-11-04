@@ -1,7 +1,7 @@
 {
   "metadata": {
     "version": "0.14.0",
-    "generatedAt": "2026-10-15T10:16:57.897Z",
+    "generatedAt": "2026-11-04T21:41:12.498Z",
     "integration": "vite",
     "sources": false,
     "gzip": true,
@@ -21,8 +21,8 @@
       "name": "[unassigned]",
       "type": "other",
       "format": "other",
-      "uncompressed": 5596,
-      "gzip": 1482,
+      "uncompressed": 6969,
+      "gzip": 1766,
       "brotli": 0,
       "parent": "dist/dpuse-presenter-samples.es.js"
     },
@@ -31,21 +31,21 @@
       "name": "config.json",
       "type": "script",
       "format": "esm",
-      "uncompressed": 2687
+      "uncompressed": 3016
     },
     {
       "kind": "filesystem",
       "name": "configPresentations.json",
       "type": "script",
       "format": "esm",
-      "uncompressed": 1560
+      "uncompressed": 2265
     },
     {
       "kind": "asset",
       "name": "dist/dpuse-presenter-samples.es.js",
       "type": "script",
-      "uncompressed": 16436,
-      "gzip": 4996,
+      "uncompressed": 20096,
+      "gzip": 6265,
       "brotli": 0
     },
     {
@@ -53,15 +53,15 @@
       "name": "node_modules/@dpuse/dpuse-shared/dist/dpuse-shared.es.js",
       "type": "script",
       "format": "esm",
-      "uncompressed": 36447
+      "uncompressed": 73702
     },
     {
       "kind": "chunk",
       "name": "node_modules/@dpuse/dpuse-shared/dist/dpuse-shared.es.js",
       "type": "script",
       "format": "esm",
-      "uncompressed": 8675,
-      "gzip": 2682,
+      "uncompressed": 9094,
+      "gzip": 2855,
       "brotli": 0,
       "parent": "dist/dpuse-presenter-samples.es.js"
     },
@@ -70,15 +70,15 @@
       "name": "src/index.ts",
       "type": "script",
       "format": "esm",
-      "uncompressed": 2088
+      "uncompressed": 2488
     },
     {
       "kind": "chunk",
       "name": "src/index.ts",
       "type": "script",
       "format": "esm",
-      "uncompressed": 1165,
-      "gzip": 508,
+      "uncompressed": 1427,
+      "gzip": 578,
       "brotli": 0,
       "parent": "dist/dpuse-presenter-samples.es.js"
     },
@@ -94,8 +94,25 @@
       "name": "src/sampleData/d3SampleData.ts",
       "type": "script",
       "format": "esm",
-      "uncompressed": 1000,
-      "gzip": 325,
+      "uncompressed": 1004,
+      "gzip": 329,
+      "brotli": 0,
+      "parent": "dist/dpuse-presenter-samples.es.js"
+    },
+    {
+      "kind": "filesystem",
+      "name": "src/sampleData/phoria2SampleData.ts",
+      "type": "script",
+      "format": "esm",
+      "uncompressed": 2796
+    },
+    {
+      "kind": "chunk",
+      "name": "src/sampleData/phoria2SampleData.ts",
+      "type": "script",
+      "format": "esm",
+      "uncompressed": 1602,
+      "gzip": 737,
       "brotli": 0,
       "parent": "dist/dpuse-presenter-samples.es.js"
     }

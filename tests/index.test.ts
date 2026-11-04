@@ -15,11 +15,12 @@ const tools = vi.hoisted(() => ({
         renderSankeyDiagram: vi.fn(),
         renderTanStackCharts: vi.fn()
     },
-    micromark: { highlight: vi.fn(), render: vi.fn(), setColorMode: vi.fn() }
+    micromark: { highlight: vi.fn(), render: vi.fn(), setColorMode: vi.fn() },
+    phoria2: { renderNetworkTopology: vi.fn() }
 }));
 vi.mock('@dpuse/dpuse-shared', async (importOriginal) => ({
     ...(await importOriginal<object>()),
-    loadTool: vi.fn((_toolConfigs: unknown, name: string) => Promise.resolve(name === 'd3-visualiser' ? tools.d3 : tools.micromark))
+    loadTool: vi.fn((_toolConfigs: unknown, name: string) => Promise.resolve({ 'd3-visualiser': tools.d3, 'phoria2-visualiser': tools.phoria2 }[name] ?? tools.micromark))
 }));
 
 // ── Tests ────────────────────────────────────────────────────────────────────────────────────────────────────────────
@@ -76,6 +77,29 @@ describe('Presenter', () => {
         expect(chartContainer).not.toBeNull();
         expect(tools.d3[methodName]).toHaveBeenCalledOnce();
         expect(tools.d3[methodName].mock.lastCall?.at(-1)).toBe(chartContainer);
+    });
+
+    it('renders the phoria2/networkTopology sample into a chart container', async () => {
+        const renderTo = document.createElement('div');
+
+        await createPresenter().render(createReference('phoria2/networkTopology'), renderTo);
+
+        const chartContainer = renderTo.querySelector('div.h-80');
+        expect(tools.phoria2.renderNetworkTopology).toHaveBeenCalledOnce();
+        expect(tools.phoria2.renderNetworkTopology.mock.lastCall?.at(-1)).toBe(chartContainer);
+    });
+
+    it('frees the previous phoria2 sample before rendering the next presentation', async () => {
+        const destroy = vi.fn();
+        tools.phoria2.renderNetworkTopology.mockResolvedValue({ destroy });
+        const presenter = createPresenter();
+
+        await presenter.render(createReference('phoria2/networkTopology'), document.createElement('div'));
+        expect(destroy).not.toHaveBeenCalled();
+
+        await presenter.render(createReference('d3/chordDiagram'), document.createElement('div'));
+        expect(destroy).toHaveBeenCalledOnce();
+        expect(presenter.phoria2View).toBeUndefined();
     });
 
     it('passes a colour mode change to the markdown tool once it is loaded', async () => {
