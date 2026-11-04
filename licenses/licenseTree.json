@@ -1,5 +1,5 @@
 {
-  "version": "1.0.113",
+  "version": "1.0.114",
   "name": "@dpuse/dpuse-presenter-samples",
   "dependencies": {
     "@dpuse/dpuse-development": {
@@ -3285,12 +3285,12 @@
       }
     },
     "@dpuse/dpuse-tool-phoria2-visualiser": {
-      "version": "1.0.2",
+      "version": "1.0.4",
       "resolved": "file:../../../../tools/dpuse-tool-phoria2-visualiser",
       "overridden": false,
       "dependencies": {
         "@dpuse/dpuse-development": {
-          "version": "1.0.145",
+          "version": "1.0.147",
           "overridden": false,
           "dependencies": {
             "@dpuse/dpuse-shared": {

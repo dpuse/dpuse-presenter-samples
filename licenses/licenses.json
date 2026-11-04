@@ -20,14 +20,6 @@
         "path": "../../tools/dpuse-tool-phoria2-visualiser/node_modules/@babel/types",
         "licenseFile": "downloads/@babel/types@7.29.11-LICENSE.txt"
     },
-    "@dpuse/dpuse-development@1.0.145": {
-        "licenses": "MIT",
-        "repository": "https://github.com/dpuse/dpuse-development",
-        "publisher": "Jonathan Terrell",
-        "email": "terrell.jm@gmail.com",
-        "path": "../../tools/dpuse-tool-phoria2-visualiser/node_modules/@dpuse/dpuse-development",
-        "licenseFile": "downloads/@dpuse/dpuse-development@1.0.145-LICENSE.txt"
-    },
     "@dpuse/dpuse-shared@1.0.183": {
         "licenses": "MIT",
         "repository": "https://github.com/dpuse/dpuse-shared",
@@ -35,6 +27,14 @@
         "email": "terrell.jm@gmail.com",
         "path": "node_modules/@dpuse/dpuse-shared",
         "licenseFile": "downloads/@dpuse/dpuse-shared@1.0.183-LICENSE.txt"
+    },
+    "@dpuse/dpuse-tool-phoria2-visualiser@1.0.4": {
+        "licenses": "MIT",
+        "repository": "https://github.com/dpuse/dpuse-tool-phoria2-visualiser",
+        "publisher": "Jonathan Terrell",
+        "email": "terrell.jm@gmail.com",
+        "path": "node_modules/@dpuse/dpuse-tool-phoria2-visualiser",
+        "licenseFile": "downloads/@dpuse/dpuse-tool-phoria2-visualiser@1.0.4-LICENSE.txt"
     },
     "@npmcli/promise-spawn@9.0.2": {
         "licenses": "ISC",
