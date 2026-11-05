@@ -86,13 +86,13 @@ _Note: Sonda's Vite reports currently exclude CSS files, since Vite does not gen
 
 | Chunk/Module/File                                                      | Composition                                                                                   |
 | :--------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------- |
-| **dist/dpuse-presenter-samples.es.js**                                 | 19.6&nbsp;kB&nbsp;·&nbsp;gzip&nbsp;6.1&nbsp;kB&nbsp;·&nbsp;100.0%&nbsp;of&nbsp;the&nbsp;build |
-| &nbsp;&nbsp;&nbsp;&nbsp;@dpuse/dpuse-shared → dist/dpuse-shared.es.js  | `█████████░░░░░░░░░░░`&nbsp;45.3%&nbsp;·&nbsp;8.9&nbsp;kB                                     |
-| &nbsp;&nbsp;&nbsp;&nbsp;src → phoria2SampleData.ts + 2 more            | `████░░░░░░░░░░░░░░░░`&nbsp;20.1%&nbsp;·&nbsp;3.9&nbsp;kB                                     |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↳ phoria2SampleData.ts | `▒▒░░░░░░░░░░░░░░░░░░`&nbsp;8.0%&nbsp;·&nbsp;1.6&nbsp;kB                                      |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↳ index.ts             | `▒░░░░░░░░░░░░░░░░░░░`&nbsp;7.1%&nbsp;·&nbsp;1.4&nbsp;kB                                      |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↳ d3SampleData.ts      | `▒░░░░░░░░░░░░░░░░░░░`&nbsp;5.0%&nbsp;·&nbsp;1004&nbsp;B                                      |
-| &nbsp;&nbsp;&nbsp;&nbsp;(bundler output, whitespace & JSON)            | `███████░░░░░░░░░░░░░`&nbsp;34.7%&nbsp;·&nbsp;6.8&nbsp;kB                                     |
+| **dist/dpuse-presenter-samples.es.js**                                 | 19.1&nbsp;kB&nbsp;·&nbsp;gzip&nbsp;5.9&nbsp;kB&nbsp;·&nbsp;100.0%&nbsp;of&nbsp;the&nbsp;build |
+| &nbsp;&nbsp;&nbsp;&nbsp;@dpuse/dpuse-shared → dist/dpuse-shared.es.js  | `█████████░░░░░░░░░░░`&nbsp;46.4%&nbsp;·&nbsp;8.9&nbsp;kB                                     |
+| &nbsp;&nbsp;&nbsp;&nbsp;src → phoria2SampleData.ts + 2 more            | `████░░░░░░░░░░░░░░░░`&nbsp;20.6%&nbsp;·&nbsp;3.9&nbsp;kB                                     |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↳ phoria2SampleData.ts | `▒▒░░░░░░░░░░░░░░░░░░`&nbsp;8.2%&nbsp;·&nbsp;1.6&nbsp;kB                                      |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↳ index.ts             | `▒░░░░░░░░░░░░░░░░░░░`&nbsp;7.3%&nbsp;·&nbsp;1.4&nbsp;kB                                      |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↳ d3SampleData.ts      | `▒░░░░░░░░░░░░░░░░░░░`&nbsp;5.1%&nbsp;·&nbsp;1004&nbsp;B                                      |
+| &nbsp;&nbsp;&nbsp;&nbsp;(bundler output, whitespace & JSON)            | `███████░░░░░░░░░░░░░`&nbsp;33.0%&nbsp;·&nbsp;6.3&nbsp;kB                                     |
 
 Bars show each row's share of its output file. ↳ rows are part of the row above.
 
